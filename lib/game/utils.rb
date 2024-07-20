@@ -2,9 +2,14 @@
 
 # The Utils module contains utility methods
 module Utils
-  def print_pegs(pegs)
-    pegs.split('').each do |color|
-      print " #{'●'.colorize(@colors[color.to_sym])}"
+  def color_pegs(pegs)
+    colored_pegs = pegs.split('').map do |color|
+      " #{'●'.colorize(@colors[color.to_sym])}"
     end
+    colored_pegs.join('')
+  end
+
+  def generate_random_pegs(colors)
+    colors.keys.sample(4)
   end
 end

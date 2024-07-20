@@ -10,7 +10,7 @@ module MenuHandling
       menu_option = gets.chomp.downcase
       case menu_option
       when  's'
-        puts 'Start'
+        game_setup
       when  'h'
         print_help
       when  'q'
@@ -25,9 +25,9 @@ module MenuHandling
   def print_examples
     puts 'Example:'
     puts "\n   rbgp"
-    print_pegs('rbgp')
+    print color_pegs('rbgp')
     puts "\n\n   ypwr"
-    print_pegs('ypwr')
+    print color_pegs('ypwr')
   end
 
   def print_help # rubocop:disable Metrics/MethodLength
@@ -40,7 +40,7 @@ module MenuHandling
     puts "\n\nEach letter represents a color:\n"
     puts "r - red, g - green, b - blue, y - yellow, p - magenta, w - white\n\n"
     puts "Example feedback:  \n\n"
-    print_pegs('rrww')
+    print color_pegs('rrww')
     puts "\n\n- A red peg indicates a correct color in a correct position."
     puts "- A white peg indicates a correct color in a wrong position.\n"
     puts 'Use this feedback to refine your guesses and crack the code!'
